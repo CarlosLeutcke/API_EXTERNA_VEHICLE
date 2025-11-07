@@ -17,7 +17,7 @@ namespace VehicleApi.Controllers
         {
             var normalized = plate?.Trim().ToUpperInvariant() ?? string.Empty;
             var vehicle = await _ctx.Vehicles.FirstOrDefaultAsync(v => v.Plate == normalized);
-            if (vehicle == null) return NotFound();
+            if (vehicle == null) return NotFound(EnumDataVehicleCondition.Unavailable);
             return Ok(vehicle);
         }
 
@@ -29,7 +29,7 @@ namespace VehicleApi.Controllers
                 var exists = await _ctx.Vehicles.AnyAsync(v => v.Plate == req.Plate.Trim().ToUpperInvariant());
                 if (exists) return BadRequest(new { error = "Veículo já cadastrado com essa placa" });
 
-                var vehicle = new Vehicle(req.Plate, req.Make, req.Model, req.Year);
+                var vehicle = new Vehicle(req.Plate, req.Brand, req.Model, req.Year, req.Color, req.Renavam, req.Chassis, req.Municipality, req.State, req.EnumDataVehicleCondition, req.EnumTypeFuelVehicle, req.EnumTheftVehicleCondition, req.Wrecked, req.JudicialRestriction, req.Auction, req.OwnerName, req.OwnerCpfCnpj, req.OwnerCnh);
                 await _ctx.Vehicles.AddAsync(vehicle);
                 await _ctx.SaveChangesAsync();
 
@@ -41,6 +41,6 @@ namespace VehicleApi.Controllers
             }
         }
 
-        public record CreateVehicleRequest(string Plate, string Make, string Model, int Year);
+        public record CreateVehicleRequest(string Plate, string Brand, string Model, int Year, string Color, string Renavam, string Chassis, string Municipality, string State, EnumDataVehicleCondition EnumDataVehicleCondition, EnumTypeFuelVehicle EnumTypeFuelVehicle, EnumTheftVehicleCondition EnumTheftVehicleCondition, bool Wrecked, bool JudicialRestriction, bool Auction, string OwnerName, string OwnerCpfCnpj, string OwnerCnh);
     }
 }

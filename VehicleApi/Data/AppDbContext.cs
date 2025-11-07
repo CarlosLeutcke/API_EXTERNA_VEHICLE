@@ -18,7 +18,7 @@ namespace VehicleApi.Data
                 b.HasKey(v => v.Id);
                 b.Property(v => v.Plate).IsRequired();
                 b.HasIndex(v => v.Plate).IsUnique();
-                b.Property(v => v.Make).IsRequired();
+                b.Property(v => v.Brand).IsRequired();
                 b.Property(v => v.Model).IsRequired();
                 b.Property(v => v.Year).IsRequired();
             });

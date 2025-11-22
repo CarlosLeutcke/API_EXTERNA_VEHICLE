@@ -5,7 +5,10 @@ VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleApi", "VehicleApi\VehicleApi.csproj", "{01BC1230-406F-47D0-A410-2397A0588A58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleAPI.GrpcServer", "..\..\..\..\..\Projetos\VehicleAPI\VehicleAPI.GrpcServer\VehicleAPI.GrpcServer.csproj", "{4AF40472-17AA-6CE7-0E7D-36CB160B48C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleAPI.GrpcServer", "..\VehicleAPI.GrpcServer\VehicleAPI.GrpcServer.csproj", "{4AF40472-17AA-6CE7-0E7D-36CB160B48C3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{01BC1230-406F-47D0-A410-2397A0588A58} = {01BC1230-406F-47D0-A410-2397A0588A58}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

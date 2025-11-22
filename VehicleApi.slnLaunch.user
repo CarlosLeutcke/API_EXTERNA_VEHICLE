@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Novo Perfil",
+    "Projects": [
+      {
+        "Path": "VehicleApi\\VehicleApi.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "..\\VehicleAPI.GrpcServer\\VehicleAPI.GrpcServer.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
